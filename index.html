@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>FreshMart — Fresh groceries delivered</title>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Mulish:wght@400;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <div class="logo">
+                        <a href="#"><div class="mark">FM</div></a>
+                        <div>
+                            <a href="#"><div>FreshMart</div></a>
+                        </div>
+                    </div>
+
+                    <button class="hamburger" aria-label="menu" id="hamburger">
+                        <!-- Hamburger icon -->
+                        <svg width="22" height="18" viewBox="0 0 22 18"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="1" width="22" height="2" rx="1"
+                                fill="#233" />
+                            <rect y="8" width="22" height="2" rx="1"
+                                fill="#233" />
+                            <rect y="15" width="22" height="2" rx="1"
+                                fill="#233" />
+                        </svg>
+                    </button>
+
+                    <div class="search" role="search">
+                        <input type="search" id="search"
+                            placeholder="Search products, brands or recipes..." />
+                        <button aria-label="search">🔍</button>
+                    </div>
+                    <!-- Results ke liye yeh div – yahin cards generate honge -->
+                    <div id="results"></div>
+
+                    <div class="categories">
+                        <button aria-haspopup="true" id="catBtn">Categories
+                            ▼</button>
+                        <div class="cat-menu" id="catMenu" aria-hidden="true">
+                            <div class="cat-item" data-cat="Fruits">Fruits</div>
+                            <div class="cat-item"
+                                data-cat="Vegetables">Vegetables</div>
+                            <div class="cat-item" data-cat="Dairy">Dairy</div>
+                            <div class="cat-item" data-cat="Snacks">Snacks</div>
+                            <div class="cat-item"
+                                data-cat="Beverages">Beverages</div>
+                            <div class="cat-item"
+                                data-cat="Household">Household</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-right">
+                    <button class="btn" id="loginBtn">Sign in</button>
+                    <button class="btn primary" id="cartBtn">Cart (0)</button>
+                </div>
+            </nav>
+
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-left">
+                    <div class="eyebrow">Weekly Fresh Picks</div>
+                    <h1>Farm-fresh groceries, everyday low prices.</h1>
+                    <p>From crisp fruits to pantry essentials — sourced
+                        sustainably and delivered fast. Enjoy contactless
+                        delivery and easy returns.</p>
+                    <div class="hero-actions">
+                        <a href="#featured" class="btn primary">Shop
+                            Featured</a>
+                        <a href="#deals" class="btn">View Deals</a>
+                    </div>
+
+                    <div
+                        style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+                        <div
+                            style="display:flex;gap:8px;align-items:center"><div
+                                style="width:10px;height:10px;background:var(--primary);border-radius:50%"></div><div
+                                class="muted">Free delivery over
+                                ₹999</div></div>
+                        <div
+                            style="display:flex;gap:8px;align-items:center"><div
+                                style="width:10px;height:10px;background:var(--accent);border-radius:50%"></div><div
+                                class="muted">Sourced from local
+                                farms</div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="slider" id="mainSlider">
+                        <div class="slides">
+                            <div class="slide"
+                                style="background-image:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1200&q=60')">
+                                <div style="max-width:60%">
+                                    <div class="badge">Limited time</div>
+                                    <h3
+                                        style="margin-top:10px;font-size:20px">Up
+                                        to 40% off on fresh berries</h3>
+                                    <p class="muted">Sweet, juicy and perfect
+                                        for breakfasts & desserts.</p>
+                                </div>
+                            </div>
+                            <div class="slide"
+                                style="background-image:url('https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=1200&q=80')">
+                                <div style="max-width:60%">
+                                    <div class="badge">New Arrival</div>
+                                    <h3
+                                        style="margin-top:10px;font-size:20px">Organic
+                                        Vegan Range</h3>
+                                    <p class="muted">Plant-powered basics and
+                                        pantry staples.</p>
+                                </div>
+                            </div>
+
+                            <div class="slide"
+                                style="background-image:url('https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=60')">
+                                <div style="max-width:60%">
+                                    <div class="badge">Hot Deal</div>
+                                    <h3
+                                        style="margin-top:10px;font-size:20px">Buy
+                                        2 Get 1 — Selected Snacks</h3>
+                                    <p class="muted">Stock up and save on your
+                                        favorite treats.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-controls" id="sliderDots"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CATEGORIES GRID -->
+            <section>
+                <div class="section">
+                    <h2>Shop by Category</h2>
+                    <div class="categories-grid" aria-label="categories">
+                        <div class="category-card" data-category="Fruits">
+                            <img
+                                src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=60"
+                                alt="Fruits">
+                            <h4>Fruits</h4>
+                        </div>
+                        <div class="category-card" data-category="Vegetables">
+                            <img
+                                src="https://images.unsplash.com/photo-1579113800032-c38bd7635818?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8VmVnZXRhYmxlc3xlbnwwfHwwfHx8MA%3D%3D"
+                                alt="Vegetables">
+                            <h4>Vegetables</h4>
+                        </div>
+                        <div class="category-card" data-category="Dairy">
+                            <img
+                                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=60"
+                                alt="Dairy">
+                            <h4>Dairy</h4>
+                        </div>
+                        <div class="category-card" data-category="Snacks">
+                            <img
+                                src="https://images.unsplash.com/photo-1688217170693-e821c6e18d72?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Snacks">
+                            <h4>Snacks</h4>
+                        </div>
+                        <div class="category-card" data-category="Beverages">
+                            <img
+                                src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=60"
+                                alt="Beverages">
+                            <h4>Beverages</h4>
+                        </div>
+                        <div class="category-card" data-category="Household">
+                            <img
+                                src="https://images.unsplash.com/photo-1604762433261-a046add6fc11?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SG91c2Vob2xkfGVufDB8fDB8fHww"
+                                alt="Household">
+                            <h4>Household</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED PRODUCTS -->
+            <section id="featured" class="section">
+                <h2>Featured Products</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- product cards (JS will create some duplicates for demo) -->
+                </div>
+            </section>
+
+            <!-- DEALS -->
+            <section id="deals" class="section">
+                <h2>Hot Deals</h2>
+                <div class="deals">
+                    <div class="deal-card">
+                        <h3>Weekend Savings</h3>
+                        <p class="muted">Extra 15% off on selected fresh
+                            produce.</p>
+                        <div class="countdown" id="countdown">
+                            <div class="unit"><div
+                                    id="d">00</div><small>Days</small></div>
+                            <div class="unit"><div
+                                    id="h">00</div><small>Hrs</small></div>
+                            <div class="unit"><div
+                                    id="m">00</div><small>Mins</small></div>
+                            <div class="unit"><div
+                                    id="s">00</div><small>Secs</small></div>
+                        </div>
+                        <p class="muted">Hurry, offer ends soon.</p>
+                    </div>
+
+                    <div class="deal-card"
+                        style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start">
+                        <h3>Flash Offers</h3>
+                        <p class="muted">Best prices on pantry essentials.</p>
+                        <div
+                            style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                            <div
+                                style="background:white;padding:10px;border-radius:10px;min-width:120px">
+                                <div style="font-weight:800">₹129</div>
+                                <div class="muted">Olive oil 500ml</div>
+                            </div>
+                            <div
+                                style="background:white;padding:10px;border-radius:10px;min-width:120px">
+                                <div style="font-weight:800">₹49</div>
+                                <div class="muted">Organic oats 500g</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section class="section">
+                <h2>What customers say</h2>
+                <div class="testimonials" id="testimonials">
+                    <div class="test-card" style="flex:1">
+                        <p>"Freshest produce I've had in ages. Delivery was quick and packaging was so thoughtful."</p>
+                        <div
+                            style="display:flex;gap:10px;align-items:center;margin-top:10px"><strong>—
+                                Priya R</strong><span class="muted">Local
+                                customer</span></div>
+                    </div>
+                    <div class="test-card" style="flex:1">
+                        <p>"Fantastic weekly deals and everything arrived perfectly. Highly recommend FreshMart."</p>
+                        <div
+                            style="display:flex;gap:10px;align-items:center;margin-top:10px"><strong>—
+                                Aman S</strong><span
+                                class="muted">Subscriber</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER -->
+            <section class="section">
+                <div class="newsletter">
+                    <div style="flex:1">
+                        <h3 style="margin:0">Join our Newsletter</h3>
+                        <p class="muted" style="margin:6px 0 0">Get fresh offers
+                            and recipe ideas delivered to your inbox.</p>
+                    </div>
+                    <form onsubmit="event.preventDefault();subscribe();"
+                        style="display:flex;gap:12px;flex:1">
+                        <input type="email" id="newsletterEmail"
+                            placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer>
+                <div class="footer-grid">
+                    <div>
+                        <h3>FreshMart</h3>
+                        <p class="muted">Fresh groceries, responsibly sourced.
+                            Contact us at <a
+                                href="mailto:hello@FreshMart.example">hello@FreshMart.example</a></p>
+                    </div>
+                    <div>
+                        <h4>Quick links</h4>
+                        <ul style="list-style:none;padding:0;margin:8px 0 0 0">
+                            <li><a href="#featured">Featured</a></li>
+                            <li><a href="#deals">Deals</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Follow us</h4>
+                        <div class="socials">
+                            <a class="btn" aria-label="facebook">F</a>
+                            <a class="btn" aria-label="instagram">I</a>
+                            <a class="btn" aria-label="twitter">T</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top:18px;text-align:center;color:var(--muted)">©
+                    <span id="year"></span> FreshMart. All rights
+                    reserved.</div>
+            </footer>
+        </div>
+
+        <script src="script.js"></script>
+        <script src="cart.js"></script>
+    </body>
+</html>
