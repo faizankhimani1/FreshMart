@@ -628,7 +628,6 @@ footer {
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-size: 0.9rem;
 }
 
 .footer-grid .muted {
@@ -710,7 +709,6 @@ footer {
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  /* box-shadow: 0 2px 8px rgba(34, 139, 34, 0.2); */
   border: 2px solid transparent;
 }
 
@@ -727,7 +725,6 @@ footer {
   margin-top: 28px;
   padding-top: 24px;
   text-align: center;
-  /* color: var(--muted); */
   font-size: 0.9rem;
 }
 

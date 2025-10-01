@@ -280,7 +280,7 @@ function filterProducts(category) {
           <div class="price">${p.price}</div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-          <div class="rating">${"★".repeat(Math.round(p.rating))} 
+          <div class="rating">${"★".repeat(Math.round(p.rating))}
             <span style="font-size:13px;color:var(--muted);margin-left:6px">${
               p.rating
             }</span>
