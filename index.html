@@ -237,24 +237,47 @@
                 </div>
             </section>
 
-            <!-- TESTIMONIALS -->
-            <section class="section">
-                <h2>What customers say</h2>
-                <div class="testimonials" id="testimonials">
-                    <div class="test-card" style="flex:1">
-                        <p>"Freshest produce I've had in ages. Delivery was quick and packaging was so thoughtful."</p>
-                        <div
-                            style="display:flex;gap:10px;align-items:center;margin-top:10px"><strong>—
-                                Priya R</strong><span class="muted">Local
-                                customer</span></div>
+            <!-- <-- Testimonial -->
+            <section class="unique-testimonials">
+                <div class="testimonial-container">
+                    <div class="testimonial-card active">
+                        <div class="card-header">
+                            <div class="avatar"></div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p
+                            class="quote">"I've been a regular at Brew Haven for years, and their lattes are pure magic—rich, smooth, and always made with a smile. It's not just coffee; it's the start to my best days. Five stars all the way!"</p>
+                        <p class="reviewer">— Sarah L., Marketing Manager</p>
                     </div>
-                    <div class="test-card" style="flex:1">
-                        <p>"Fantastic weekly deals and everything arrived perfectly. Highly recommend FreshMart."</p>
-                        <div
-                            style="display:flex;gap:10px;align-items:center;margin-top:10px"><strong>—
-                                Aman S</strong><span
-                                class="muted">Subscriber</span></div>
+
+                    <div class="testimonial-card">
+                        <div class="card-header">
+                            <div class="avatar"></div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p
+                            class="quote">"The ambiance at Brew Haven is unbeatable—cozy corners for work or chats, and the baristas remember your order. Best spot in town for a productive afternoon!"</p>
+                        <p class="reviewer">— Mike T., Freelance Designer</p>
                     </div>
+
+                    <div class="testimonial-card">
+                        <div class="card-header">
+                            <div class="avatar"></div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p
+                            class="quote">"As a coffee snob, I was skeptical, but Brew Haven's single-origin brews blew me away. Ethical sourcing and incredible flavor—I'll be back weekly!"</p>
+                        <p class="reviewer">— Elena R., Barista Enthusiast</p>
+                    </div>
+                </div>
+
+                <button class="carousel-control left">‹</button>
+                <button class="carousel-control right">›</button>
+
+                <div class="indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
                 </div>
             </section>
 
@@ -276,38 +299,58 @@
             </section>
 
             <!-- FOOTER -->
+            <!-- ENHANCED FOOTER -->
             <footer>
                 <div class="footer-grid">
+                    <!-- Brand Section -->
                     <div>
-                        <h3>FreshMart</h3>
+                        <h3>🌿 FreshMart</h3>
                         <p class="muted">Fresh groceries, responsibly sourced.
-                            Contact us at <a
-                                href="mailto:hello@FreshMart.example">hello@FreshMart.example</a></p>
+                            Bringing quality produce directly to your doorstep.
+                        </p>
+                        <p class="muted" style="margin-top: 12px;">
+                            📧 <a
+                                href="mailto:hello@FreshMart.example">hello@FreshMart.example</a>
+                            <br>
+                            📞 <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </p>
                     </div>
+
+                    <!-- Quick Links Section -->
                     <div>
-                        <h4>Quick links</h4>
-                        <ul style="list-style:none;padding:0;margin:8px 0 0 0">
-                            <li><a href="#featured">Featured</a></li>
-                            <li><a href="#deals">Deals</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Careers</a></li>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#featured">Featured Products</a></li>
+                            <li><a href="#deals">Special Deals</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
+
+                    <!-- Social Media Section -->
                     <div>
-                        <h4>Follow us</h4>
+                        <h4>Follow Us</h4>
                         <div class="socials">
-                            <a class="btn" aria-label="facebook">F</a>
-                            <a class="btn" aria-label="instagram">I</a>
-                            <a class="btn" aria-label="twitter">T</a>
+                            <a href="#" class="btn" aria-label="Facebook">F</a>
+                            <a href="#" class="btn" aria-label="Instagram">I</a>
+                            <a href="#" class="btn" aria-label="Twitter">T</a>
+                            <a href="#" class="btn" aria-label="YouTube">Y</a>
                         </div>
                     </div>
                 </div>
 
-                <div
-                    style="margin-top:18px;text-align:center;color:var(--muted)">©
-                    <span id="year"></span> FreshMart. All rights
-                    reserved.</div>
+                <!-- Copyright Section -->
+                <div class="footer-copyright">
+                    © <span id="year"></span> FreshMart. All rights reserved. |
+                    Made with 💚 for fresh food lovers
+                </div>
             </footer>
+
+            <script>
+// Auto-update year
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
         </div>
 
         <script src="script.js"></script>

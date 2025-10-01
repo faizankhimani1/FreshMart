@@ -196,18 +196,6 @@ function subscribe() {
   alert("Thanks for subscribing — " + email);
 }
 
-// --------- Testimonials slider simple auto (small) ---------
-function initTestimonials() {
-  const wrap = document.getElementById("testimonials");
-  let idx = 0;
-  setInterval(() => {
-    idx = (idx + 1) % wrap.children.length;
-    wrap.style.transform = `translateX(-${idx * 100}%)`;
-    wrap.style.display = "flex";
-    wrap.style.transition = "transform .5s";
-  }, 4500);
-}
-
 // --------- Misc init on DOM ready ---------
 document.addEventListener("DOMContentLoaded", () => {
   initSlider();
@@ -236,15 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.style = "";
     })
   );
-
-  // testimonial quick style for horizontal sliding
-  const t = document.getElementById("testimonials");
-  t.style.overflow = "hidden";
-  Array.from(t.children).forEach((c) => {
-    c.style.minWidth = "100%";
-    c.style.flex = "0 0 100%";
-  });
-  initTestimonials();
 });
 
 // small helper for smooth scroll to top when clicking logo
@@ -315,3 +294,56 @@ function filterProducts(category) {
       grid.appendChild(card);
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".testimonial-card");
+  const leftBtn = document.querySelector(".left");
+  const rightBtn = document.querySelector(".right");
+  const indicators = document.querySelectorAll(".indicator");
+  let currentIndex = 0;
+  let autoInterval;
+
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle("active", i === index);
+    });
+    indicators.forEach((ind, i) => {
+      ind.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    showCard(currentIndex);
+  }
+
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    showCard(currentIndex);
+  }
+
+  rightBtn.addEventListener("click", nextCard);
+  leftBtn.addEventListener("click", prevCard);
+
+  indicators.forEach((ind, i) => {
+    ind.addEventListener("click", () => {
+      currentIndex = i;
+      showCard(currentIndex);
+    });
+  });
+
+  // Auto-advance every 4 seconds
+  function startAuto() {
+    autoInterval = setInterval(nextCard, 4000);
+  }
+
+  function stopAuto() {
+    clearInterval(autoInterval);
+  }
+
+  // Pause on hover
+  const section = document.querySelector(".unique-testimonials");
+  section.addEventListener("mouseenter", stopAuto);
+  section.addEventListener("mouseleave", startAuto);
+
+  startAuto();
+});
